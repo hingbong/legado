@@ -16,7 +16,8 @@ jobs:
           java-version: 11
       - name: Build debug APK
         run: bash ./gradlew assembleDebug --stacktrace
-             tree
+      - name: list files
+        run: tree
       - name: Upload APK
         uses: actions/upload-artifact@master
         with:

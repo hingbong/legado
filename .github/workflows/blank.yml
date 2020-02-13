@@ -9,4 +9,4 @@ jobs:
 
     steps:
     - name: setup-android
-    - uses: msfjarvis/setup-android@0.2
+      uses: msfjarvis/setup-android@0.2

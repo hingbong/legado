@@ -52,26 +52,25 @@ abstract class BaseActivity(
         } ?: super.onCreateOptionsMenu(menu)
     }
 
-    override fun onMenuOpened(featureId: Int, menu: Menu?): Boolean {
-        menu?.let {
+    override fun onMenuOpened(featureId: Int, menu: Menu): Boolean {
+        menu.let {
             menu.applyOpenTint(this)
             return super.onMenuOpened(featureId, menu)
         }
-        return true
     }
 
     open fun onCompatCreateOptionsMenu(menu: Menu): Boolean {
         return super.onCreateOptionsMenu(menu)
     }
 
-    final override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        item?.let {
+    final override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        item.let {
             if (it.itemId == android.R.id.home) {
                 supportFinishAfterTransition()
                 return true
             }
         }
-        return item != null && onCompatOptionsItemSelected(item)
+        return onCompatOptionsItemSelected(item)
     }
 
     open fun onCompatOptionsItemSelected(item: MenuItem): Boolean {

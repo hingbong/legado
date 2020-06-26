@@ -102,7 +102,7 @@ object ActivityHelp : Application.ActivityLifecycleCallbacks {
         remove(activity)
     }
 
-    override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle?) {
+    override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {
     }
 
     override fun onActivityStopped(activity: Activity) {

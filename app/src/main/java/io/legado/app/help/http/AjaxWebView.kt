@@ -62,12 +62,13 @@ class AjaxWebView {
                 webView.webViewClient = HtmlWebViewClient(params, handler)
             }
             when (params.requestMethod) {
-                RequestMethod.POST -> webView.postUrl(params.url, params.postData)
+                RequestMethod.POST -> webView.postUrl(params.url, (params.postData ?: ByteArray(0)))
                 RequestMethod.GET -> webView.loadUrl(
                     params.url,
-                    params.headerMap
+                    (params.headerMap ?: emptyMap())
                 )
             }
+
             return webView
         }
 
